@@ -1,4 +1,3 @@
-#include <iostream>
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -14,7 +13,7 @@ void bubbleSort(int* arr, int size) {
         }
     }
 }
-
+// If flag is zero after any pass then list is already sorted.
 int main() {
     int size;
     cout << "Enter the size of the array: ";
