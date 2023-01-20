@@ -1,0 +1,11 @@
+This program uses the binary search algorithm to search for a given element in an array of integers. 
+The user is prompted to enter the size of the array and the elements of the array. 
+The binarySearch function takes in the array, the low and high indices, and the element to search for as parameters.
+ If the element is found in the array, its index is returned. 
+If the element is not found, the function returns -1.
+
+The program then prompts the user to enter the element to search for.
+ If the element is not found in the array, the user is prompted to enter the position to insert the element. 
+ The insertElement function is called to insert the element at the specified position in the array.
+  If the element is found in the array, the deleteElement function is called to delete the element from the array. 
+Finally, the program prints
