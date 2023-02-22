@@ -1,0 +1,8 @@
+In this implementation, we first define a MaxHeap class with two private helper functions heapify_up and heapify_down which maintain the heap property when elements are inserted or removed. The insert function inserts an element into the heap by first adding it to the end of the vector and then performing heapify_up on the element's index. The pop function removes the root element (i.e., the maximum element) from the heap by swapping it with the last element, removing the last element, and then performing heapify_down on the root index. The empty function returns true if the heap is empty.
+
+The MaxPriorityQueue class simply wraps a MaxHeap instance and provides two functions, insert and pop, which call the corresponding functions of the MaxHeap instance. The empty function also calls the empty function of the MaxHeap instance.
+
+In the main function, we create a MaxPriorityQueue instance, insert some elements, and then pop them in order. The output should be 9 7 5 4 2.
+
+
+
