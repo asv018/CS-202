@@ -1,19 +1,22 @@
-#include<iostream>
-#include<stack>
+#include <iostream>
+#include <stack>
 using namespace std;
 // Last in first out -> Stack
 // Make a stack using linked list.
-//infix to postfix
+// infix to postfix
 // postfix evaluate
-struct Node{
+struct Node
+{
     int data;
-    Node* next;
+    Node *next;
 };
 
-class Stack{
-    private:
-    Node* top; 
-    public:
+class Stack
+{
+private:
+    Node *top;
+
+public:
     Stack()
     {
         top = NULL;
@@ -27,35 +30,38 @@ class Stack{
     void push(int value)
     {
         // Overflow condition
-        
-        Node* newNode = new Node;
-        newNode -> data = value;
-        newNode -> next = top;
+
+        Node *newNode = new Node;
+        newNode->data = value;
+        newNode->next = top;
         top = newNode;
     }
 
-    
-    // pop 
-    int pop(){
-        if(isEmpty())
+    // pop
+    int pop()
+    {
+        if (isEmpty())
         {
             cout << "Stack is empty" << '\n';
             return -1;
         }
 
-        int value = top -> data;
-        Node* temp = top;
-        top = top -> next;
+        int value = top->data;
+        Node *temp = top;
+        top = top->next;
         delete temp;
         return value;
     }
-       void printStack() {
-        if (isEmpty()) {
+    void printStack()
+    {
+        if (isEmpty())
+        {
             cout << "Stack is empty." << endl;
             return;
         }
-        Node* temp = top;
-        while (temp != NULL) {
+        Node *temp = top;
+        while (temp != NULL)
+        {
             cout << temp->data << " ";
             temp = temp->next;
         }
@@ -75,6 +81,4 @@ int main()
     cout << "Popped Value : " << s.pop() << '\n';
     s.printStack();
     return 0;
-
-
 }
