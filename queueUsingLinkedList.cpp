@@ -1,33 +1,39 @@
 #include <iostream>
 using namespace std;
 
-class Node {
+class Node
+{
 public:
     int data;
-    Node* next;
+    Node *next;
 };
 
-class Queue {
+class Queue
+{
 private:
-    Node* head;
-    Node* tail;
+    Node *head;
+    Node *tail;
 
 public:
-    Queue() {
+    Queue()
+    {
         head = NULL;
         tail = NULL;
     }
 
-    bool isEmpty() {
+    bool isEmpty()
+    {
         return head == NULL;
     }
 
-    void enqueue(int data) {
-        Node* temp = new Node();
+    void enqueue(int data)
+    {
+        Node *temp = new Node();
         temp->data = data;
         temp->next = NULL;
 
-        if (tail == NULL) {
+        if (tail == NULL)
+        {
             head = tail = temp;
             return;
         }
@@ -36,17 +42,20 @@ public:
         tail = temp;
     }
 
-    int dequeue() {
-        if (isEmpty()) {
+    int dequeue()
+    {
+        if (isEmpty())
+        {
             cout << "Queue is empty" << endl;
-            return INT_MIN;
+            return INT16_MIN;
         }
 
-        Node* temp = head;
+        Node *temp = head;
         int data = temp->data;
         head = head->next;
 
-        if (head == NULL) {
+        if (head == NULL)
+        {
             tail = NULL;
         }
 

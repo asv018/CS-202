@@ -2,112 +2,133 @@
 
 using namespace std;
 
-struct Node {
+struct Node
+{
   int data;
-  Node* next;
+  Node *next;
 };
 
-Node* head = NULL;
+Node *head = NULL;
 
-void insertAtHead(int data) {
-  Node* newNode = new Node();
+void insertAtHead(int data)
+{
+  Node *newNode = new Node();
   newNode->data = data;
   newNode->next = head;
   head = newNode;
 }
 
-void insertAtTail(int data) {
-  Node* newNode = new Node();
+void insertAtTail(int data)
+{
+  Node *newNode = new Node();
   newNode->data = data;
   newNode->next = NULL;
-  
-  if (head == NULL) {
+
+  if (head == NULL)
+  {
     head = newNode;
     return;
   }
 
-  Node* temp = head;
-  while (temp->next != NULL) {
+  Node *temp = head;
+  while (temp->next != NULL)
+  {
     temp = temp->next;
   }
   temp->next = newNode;
 }
 
-void insertAtPosition(int data, int position) {
-  if (position == 1) {
+void insertAtPosition(int data, int position)
+{
+  if (position == 1)
+  {
     insertAtHead(data);
     return;
   }
 
-  Node* newNode = new Node();
+  Node *newNode = new Node();
   newNode->data = data;
 
-  Node* temp = head;
-  for (int i = 0; i < position - 2; i++) {
+  Node *temp = head;
+  for (int i = 0; i < position - 2; i++)
+  {
     temp = temp->next;
   }
   newNode->next = temp->next;
   temp->next = newNode;
 }
 
-void deleteAtHead() {
-  if (head == NULL) {
+void deleteAtHead()
+{
+  if (head == NULL)
+  {
     return;
   }
 
-  Node* temp = head;
+  Node *temp = head;
   head = head->next;
   delete temp;
 }
 
-void deleteAtTail() {
-  if (head == NULL) {
+void deleteAtTail()
+{
+  if (head == NULL)
+  {
     return;
   }
 
-  if (head->next == NULL) {
+  if (head->next == NULL)
+  {
     delete head;
     head = NULL;
     return;
   }
 
-  Node* temp = head;
-  while (temp->next->next != NULL) {
+  Node *temp = head;
+  while (temp->next->next != NULL)
+  {
     temp = temp->next;
   }
   delete temp->next;
   temp->next = NULL;
 }
 
-void deleteAtPosition(int position) {
-  if (head == NULL) {
+void deleteAtPosition(int position)
+{
+  if (head == NULL)
+  {
     return;
   }
 
-  if (position == 1) {
+  if (position == 1)
+  {
     deleteAtHead();
     return;
   }
 
-  Node* temp = head;
-  for (int i = 0; i < position - 2; i++) {
+  Node *temp = head;
+  for (int i = 0; i < position - 2; i++)
+  {
     temp = temp->next;
   }
-  Node* nodeToDelete = temp->next;
+  Node *nodeToDelete = temp->next;
   temp->next = nodeToDelete->next;
   delete nodeToDelete;
 }
 
-void printList() {
-  Node* temp = head;
-  while (temp != NULL) {
+void printList()
+{
+  Node *temp = head;
+  while (temp != NULL)
+  {
     cout << temp->data << " ";
     temp = temp->next;
   }
   cout << endl;
 }
 
-int main() {
+int main()
+{
   insertAtHead(5);
   insertAtHead(10);
   insertAtHead(15);
@@ -124,4 +145,16 @@ int main() {
   printList();
 
   deleteAtHead();
-  cout << "List after deleting at head
+  cout << "List after deleting at head: ";
+  printList();
+
+  deleteAtTail();
+  cout << "List after deleting at tail: ";
+  printList();
+
+  deleteAtPosition(2);
+  cout << "List after deleting at position 2: ";
+  printList();
+
+  return 0;
+}
